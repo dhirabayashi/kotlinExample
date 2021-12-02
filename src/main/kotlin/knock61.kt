@@ -20,9 +20,9 @@ class SquareAndCircle: JFrame() {
 
         // 正方形の描画
         val point = Point(initX, initY)
-        point.drawLineUpAndMove(g2d, size)
-        point.drawLineRightAndMove(g2d, size)
         point.drawLineDownAndMove(g2d, size)
+        point.drawLineRightAndMove(g2d, size)
+        point.drawLineUpAndMove(g2d, size)
         point.drawLineLeftAndMove(g2d, size)
 
         // 円の描画
@@ -31,13 +31,13 @@ class SquareAndCircle: JFrame() {
 }
 
 data class Point(private var x: Int, private var y: Int) {
-    fun drawLineUpAndMove(g: Graphics, size: Int) {
+    fun drawLineDownAndMove(g: Graphics, size: Int) {
         val newY = y + size
         g.drawLine(x, y, x, newY)
         y = newY
     }
 
-    fun drawLineDownAndMove(g: Graphics, size: Int) {
+    fun drawLineUpAndMove(g: Graphics, size: Int) {
         val newY = y - size
         g.drawLine(x, y, x, newY)
         y = newY

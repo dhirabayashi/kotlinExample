@@ -28,27 +28,25 @@ class Orthant(private val initX: Int, private val initY: Int): JFrame() {
 
         // 円の描画
         val size = radius * 2
-        val centerX = initX - radius
-        val centerY = initY - radius
 
-        g2d.drawOval(centerX, centerY, size, size)
+        g2d.drawOval(initX - radius, initY - radius, size, size)
 
         // 円の色塗り
-        if(centerY >= centerHeight && centerX <= centerWidth) {
+        if(initY >= centerHeight && initX <= centerWidth) {
             //　左下
             g2d.color = Color.RED
-        } else if(centerY >= centerHeight && centerX >= centerWidth) {
+        } else if(initY >= centerHeight && initX >= centerWidth) {
             // 右下
             g2d.color = Color.BLUE
-        } else if(centerY <= centerHeight && centerX <= centerWidth) {
+        } else if(initY <= centerHeight && initX <= centerWidth) {
             // 左上
             g2d.color = Color.GREEN
-        } else if(centerY <= centerHeight && centerX >= centerWidth) {
+        } else if(initY <= centerHeight && initX >= centerWidth) {
             // 右上
             g2d.color = Color.YELLOW
         }
 
-        g2d.fillOval(centerX, centerY, size, size)
+        g2d.fillOval(initX - radius, initY - radius, size, size)
     }
 }
 

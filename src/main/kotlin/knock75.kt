@@ -4,37 +4,33 @@ import javax.swing.JFrame
 import javax.swing.SwingUtilities
 import javax.swing.Timer
 
-class BoundDouble: JFrame() {
+class BoundFive: JFrame() {
     private val windowWidth = 600
     private val windowHeight = 400
 
     init {
-        title = "bound double"
+        title = "bound five"
         setSize(windowWidth, windowHeight)
         setLocationRelativeTo(null)
         defaultCloseOperation = EXIT_ON_CLOSE
 
         val mainPanel = contentPane
-        mainPanel.add(BoundDoubleComponent(windowWidth, windowHeight))
+        mainPanel.add(BoundFiveComponent(windowWidth, windowHeight))
     }
 }
 
-data class BoundCircle(
-    var x: Int,
-    var y: Int,
-    var incrementalX: Int,
-    var incrementalY: Int
-)
-
-class BoundDoubleComponent(private val windowWidth: Int, private val windowHeight: Int): JComponent() {
+class BoundFiveComponent(private val windowWidth: Int, private val windowHeight: Int): JComponent() {
     private val radius = 30
     private val size = radius * 2
     private val initX = 30
     private val initY = windowHeight - 30
 
     private val circles = listOf(
-        BoundCircle(initX, initY, 5, -3),
-        BoundCircle(initX, initY, 3, -5)
+        BoundCircle(initX, initY, 1, -5),
+        BoundCircle(initX, initY, 2, -4),
+        BoundCircle(initX, initY, 3, -3),
+        BoundCircle(initX, initY, 4, -2),
+        BoundCircle(initX, initY, 5, -1),
     )
     private val delay = 50
     private var timer: Timer = Timer(delay) {
@@ -79,6 +75,6 @@ class BoundDoubleComponent(private val windowWidth: Int, private val windowHeigh
 
 fun main() {
     SwingUtilities.invokeLater {
-        BoundDouble().isVisible = true
+        BoundFive().isVisible = true
     }
 }

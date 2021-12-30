@@ -13,8 +13,26 @@ data class Card(
     val suit: Suit,
     val number: Int
 ) {
+    companion object {
+        val displayStringMap = mapOf(1 to "A", 11 to "J", 12 to "Q", 13 to "K")
+    }
+
+    fun displayNumber(): String {
+        return displayStringMap[number] ?: number.toString()
+    }
+
+    fun numberForBlackJack(): Int {
+        return if(number == 1) {
+            11
+        } else if(number > 10) {
+            10
+        } else {
+            number
+        }
+    }
+
     override fun toString(): String {
-        return "${suit.displayName()}${number}"
+        return "${suit.displayName()}${displayNumber()}"
     }
 }
 
